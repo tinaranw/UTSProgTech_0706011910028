@@ -58,7 +58,7 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
 
         if(pos>=0){
             btn_add.setText("Update Data");
-            toolbar.setTitle("Update Data");
+            toolbar.setTitle("Edit User");
             getname = mContacts.get(pos).getName();
             getage = mContacts.get(pos).getAge();
             getaddress = mContacts.get(pos).getAddress();

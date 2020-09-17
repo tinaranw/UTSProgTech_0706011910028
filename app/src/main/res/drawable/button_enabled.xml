@@ -5,7 +5,7 @@
         android:id="@android:id/background"
         android:gravity="center">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
-            <solid android:color="@color/colorPrimaryDark"/>
+            <solid android:color="#F8B4B9"/>
             <corners android:radius="8dp"/>
         </shape>
     </item>

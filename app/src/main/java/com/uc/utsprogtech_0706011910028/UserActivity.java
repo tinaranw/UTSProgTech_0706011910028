@@ -92,6 +92,8 @@ public class UserActivity extends AppCompatActivity {
                                         loadingDialog.dismissDialog();
                                         startActivity(intent);
                                         finish();
+                                        Toast.makeText(UserActivity.this, "Delete success!",
+                                                Toast.LENGTH_LONG).show();
                                     }
                                 },5000);
 //                                Toast.makeText(UserActivity.this, "Delete Success",
@@ -105,7 +107,7 @@ public class UserActivity extends AppCompatActivity {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(UserActivity.this);
-                builder.setMessage("Are you sure you want to delete this contact?")
+                builder.setMessage("Are you sure you want to delete " + name + " ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
 

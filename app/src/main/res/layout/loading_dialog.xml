@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#D9BEFF"
-    android:orientation="vertical"
     android:layout_margin="16dp"
+    android:background="#F8B4B9"
+    android:orientation="vertical"
     android:padding="24dp">
 
     <ImageView

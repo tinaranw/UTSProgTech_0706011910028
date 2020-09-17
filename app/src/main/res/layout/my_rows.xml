@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="#EBF1EB"
+        app:cardBackgroundColor="#FAE8DF"
         app:cardCornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,7 +27,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+                app:srcCompat="@drawable/person" />
 
             <TextView
                 android:id="@+id/view_fname"

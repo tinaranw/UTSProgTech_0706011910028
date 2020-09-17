@@ -5,7 +5,8 @@
     android:id="@+id/cons_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:background="#FDF2ED"
+    tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:title="@string/ListofUsersTitle"
-            app:titleTextColor="#FFFFFF" />
+            app:titleTextColor="#555255" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

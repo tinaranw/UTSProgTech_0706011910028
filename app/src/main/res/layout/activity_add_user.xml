@@ -5,6 +5,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDF2ED"
     tools:context=".AddUserActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -25,9 +26,9 @@
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
                 app:title="@string/AddUserTitle"
-                app:titleTextColor="#FFFFFF" />
+                app:titleTextColor="#555255" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_fname"
@@ -94,7 +95,7 @@
                 android:background="@drawable/button_selector"
                 android:enabled="false"
                 android:text="@string/SaveDataButton"
-                android:textColor="#FFFFFF"
+                android:textColor="#555255"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
