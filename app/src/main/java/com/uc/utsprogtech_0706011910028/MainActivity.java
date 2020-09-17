@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements MyAdapter.OnContactListener {
 
     FloatingActionButton btn_add;
-//    TextView nodata;
+    TextView nodata;
     ArrayList<User> mContacts = SaveData.saveList;
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        nodata = findViewById(R.id.nodataTxt);
+
+        if(mContacts.isEmpty()){
+            nodata.setVisibility(View.VISIBLE);
+        } else {
+            nodata.setVisibility(View.INVISIBLE);
+        }
 
         btn_add = findViewById(R.id.button_add_main);
 //        nodata = findViewById(R.id.noData);
