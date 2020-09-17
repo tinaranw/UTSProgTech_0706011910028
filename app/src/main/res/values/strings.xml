@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tugas UTS</string>
+    <string name="app_name">Tinton</string>
     <string name="ListofUsersTitle">Lists of Users</string>
     <string name="AddUserTitle">Add User</string>
     <string name="SaveDataButton">Save Data</string>
