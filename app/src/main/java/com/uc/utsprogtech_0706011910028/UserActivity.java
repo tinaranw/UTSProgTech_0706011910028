@@ -1,9 +1,13 @@
 package com.uc.utsprogtech_0706011910028;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +16,7 @@ import android.widget.Toast;
 
 import com.uc.utsprogtech_0706011910028.Model.SaveData;
 import com.uc.utsprogtech_0706011910028.Model.User;
+import com.uc.utsprogtech_0706011910028.LoadingDialog;
 
 import java.util.ArrayList;
 
@@ -23,12 +28,13 @@ public class UserActivity extends AppCompatActivity {
     String name, address;
     String age;
     Button editBtn, deleteBtn;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         final int position = intent.getIntExtra("contact_info",0);
         Log.d("position", String.valueOf(position));
         name = mContacts.get(position).getName();
@@ -42,6 +48,8 @@ public class UserActivity extends AppCompatActivity {
         nameContact = findViewById(R.id.name_title);
         ageContact = findViewById(R.id.age_title);
         addressContact = findViewById(R.id.address_title);
+        toolbar = findViewById(R.id.userdetail_toolbar);
+        final LoadingDialog loadingDialog =  new LoadingDialog(UserActivity.this);
 
         nameContact.setText(name);
         ageContact.setText(age);
@@ -53,19 +61,56 @@ public class UserActivity extends AppCompatActivity {
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this,EditUserActivity.class);
+                Intent intent = new Intent(UserActivity.this,AddUserActivity.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
+            }
+        });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mContacts.remove(position);
-                Intent intent = new Intent(UserActivity.this,MainActivity.class);
-                startActivity(intent);
+                final Intent intent = new Intent(UserActivity.this,MainActivity.class);
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case DialogInterface.BUTTON_POSITIVE:
+                                mContacts.remove(position);
+                                loadingDialog.startLoadingDialog();
+                                Handler handler =new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        loadingDialog.dismissDialog();
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                },5000);
+//                                Toast.makeText(UserActivity.this, "Delete Success",
+//                                        Toast.LENGTH_LONG).show();
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                dialog.dismiss();
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserActivity.this);
+                builder.setMessage("Are you sure you want to delete this contact?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
             }
         });
+
     }
 }

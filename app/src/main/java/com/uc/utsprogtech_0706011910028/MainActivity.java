@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (MainActivity.this, AddUserActivity.class);
+                intent.putExtra("position",-1);
                 startActivity(intent);
             }
         });

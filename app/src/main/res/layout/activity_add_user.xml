@@ -41,6 +41,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/toolbar_adduser">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/FullNameHint" />
@@ -58,6 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/input_fname">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ageEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/AgeHint"
@@ -76,6 +78,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/input_age">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/AddressHint" />
