@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tugas UTS</string>
+    <string name="ListofUsersTitle">Lists of Users</string>
+    <string name="AddUserTitle">Add User</string>
+    <string name="SaveDataButton">Save Data</string>
+    <string name="FullNameHint">Full Name</string>
+    <string name="AgeHint">Age</string>
+    <string name="AddressHint">Address</string>
+    <string name="MainNoData">No Data</string>
+    <string name="LoadingDialogue">Loading...</string>
+</resources>
