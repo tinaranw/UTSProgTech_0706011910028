@@ -23,7 +23,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyAdapter.OnContactListener {
 
     FloatingActionButton btn_add;
     TextView nodata;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new MyAdapter(mContacts);
+        mAdapter = new MyAdapter(mContacts, this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -88,4 +88,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onContactClick(int position) {
+        Log.d("clickwhy","onContactClick: clicked " + position);
+        Intent intent = new Intent(this, UserActivity.class);
+        intent.putExtra("contact_info",position);
+        startActivity(intent);
+    }
 }

@@ -19,16 +19,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
     ArrayList<User> mContacts;
+    private OnContactListener mOnContactListener;
 
-    public MyAdapter(ArrayList<User> mContacts) {
+    public MyAdapter(ArrayList<User> mContacts, OnContactListener onContactListener) {
         this.mContacts = mContacts;
+        this.mOnContactListener = onContactListener;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_rows,parent,false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, mOnContactListener);
     }
 
     @Override
@@ -43,16 +45,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return mContacts.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView mFullName, mAge, mAddress;
+        OnContactListener onContactListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, OnContactListener onContactListener) {
             super(itemView);
 
             mFullName = itemView.findViewById(R.id.view_fname);
             mAge = itemView.findViewById(R.id.view_age);
             mAddress = itemView.findViewById(R.id.view_address);
+            this.onContactListener = onContactListener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            onContactListener.onContactClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnContactListener{
+
+        void onContactClick(int position);
     }
 }

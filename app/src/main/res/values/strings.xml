@@ -8,4 +8,10 @@
     <string name="AddressHint">Address</string>
     <string name="MainNoData">No Data</string>
     <string name="LoadingDialogue">Loading...</string>
+    <string name="editUserTxt">Edit User</string>
+    <string name="EditDataButton">Edit Data</string>
+    <string name="UserDetailToolbar">User Detail</string>
+    <string name="AgeTitle">Age</string>
+    <string name="NameTitle">Name</string>
+    <string name="AddressTitle">Address</string>
 </resources>
