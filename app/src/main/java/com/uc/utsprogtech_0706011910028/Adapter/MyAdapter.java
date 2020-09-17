@@ -68,7 +68,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     }
 
     public interface OnContactListener{
-
         void onContactClick(int position);
     }
 }

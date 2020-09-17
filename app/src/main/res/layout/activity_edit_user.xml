@@ -45,6 +45,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_nametext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/FullNameHint" />
@@ -60,6 +61,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_agetext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/AgeHint" />
@@ -75,6 +77,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_age">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_addresstext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/AddressHint" />
@@ -88,7 +91,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/button_selector"
-                android:enabled="false"
+                android:enabled="true"
                 android:text="@string/EditDataButton"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"

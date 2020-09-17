@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements MyAdapter.OnContactListener {
 
     FloatingActionButton btn_add;
-    TextView nodata;
+//    TextView nodata;
     ArrayList<User> mContacts = SaveData.saveList;
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
         setContentView(R.layout.activity_main);
 
         btn_add = findViewById(R.id.button_add_main);
-        nodata = findViewById(R.id.noData);
+//        nodata = findViewById(R.id.noData);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +70,14 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
             }
         });
 
-        if(getIntent().getParcelableExtra("dataUser") != null){
-            user = getIntent().getParcelableExtra("dataUser");
-            nodata.setVisibility(View.INVISIBLE);
-        }
+//        if(getIntent().getParcelableExtra("dataUser") != null){
+//            user = getIntent().getParcelableExtra("dataUser");
+//            nodata.setVisibility(View.INVISIBLE);
+//        }
+
+//        if(mContacts != null) {
+//            nodata.setVisibility(View.INVISIBLE);
+//        }
 
         mRecyclerView = findViewById(R.id.recyclerView);
 
