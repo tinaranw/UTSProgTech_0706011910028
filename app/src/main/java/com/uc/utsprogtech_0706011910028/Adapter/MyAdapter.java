@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.uc.utsprogtech_0706011910028.Model.SaveData;
 import com.uc.utsprogtech_0706011910028.Model.User;
 import com.uc.utsprogtech_0706011910028.R;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
 
-    ArrayList<User> mContacts = SaveData.saveList;
+    ArrayList<User> mContacts;
     private OnContactListener mOnContactListener;
 
     public MyAdapter(ArrayList<User> mContacts, OnContactListener onContactListener) {

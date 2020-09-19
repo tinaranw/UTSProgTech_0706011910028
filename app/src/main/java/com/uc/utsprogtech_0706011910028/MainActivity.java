@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
+    User user;
 
     boolean doubleBackToExitPressedOnce = false;
 
@@ -99,6 +100,5 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
         Intent intent = new Intent(this, UserActivity.class);
         intent.putExtra("contact_info",position);
         startActivity(intent);
-
     }
 }
