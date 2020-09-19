@@ -79,6 +79,15 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
             }
         });
 
+//        if(getIntent().getParcelableExtra("dataUser") != null){
+//            user = getIntent().getParcelableExtra("dataUser");
+//            nodata.setVisibility(View.INVISIBLE);
+//        }
+
+//        if(mContacts != null) {
+//            nodata.setVisibility(View.INVISIBLE);
+//        }
+
         mRecyclerView = findViewById(R.id.recyclerView);
 
         mRecyclerView.setHasFixedSize(true);
@@ -87,13 +96,11 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnConta
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+
+
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mAdapter.notifyDataSetChanged();
-    }
+
     @Override
     public void onContactClick(int position) {
         Log.d("clickwhy","onContactClick: clicked " + position);
