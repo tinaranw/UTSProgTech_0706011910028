@@ -65,7 +65,6 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this,AddUserActivity.class);
                 intent.putExtra("posisi", indexpos);
                 startActivity(intent);
-                finish();
             }
         });
 
