@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    android:background="#F8B4B9"
+    android:background="#F9E3D9"
     android:orientation="vertical"
     android:padding="24dp">
 
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/utspt_logo" />
+        app:srcCompat="@drawable/cuteandroid" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -25,6 +25,9 @@
         android:layout_width="53dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#F8B4B9"
+        android:indeterminateTintMode="src_atop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.619"

@@ -64,7 +64,6 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this,AddUserActivity.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -108,6 +107,8 @@ public class UserActivity extends AppCompatActivity {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(UserActivity.this);
+                builder.setIcon(R.drawable.delete);
+                builder.setTitle("Konfirmasi");
                 builder.setMessage("Are you sure you want to delete " + name + " ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
