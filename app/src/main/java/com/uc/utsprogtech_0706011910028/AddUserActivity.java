@@ -78,29 +78,43 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
+
 
                 if(pos>=0){
+                    final Intent intentDetail = new Intent(AddUserActivity.this, UserActivity.class);
+                    intentDetail.putExtra("position",pos );
                     mContacts.get(pos).setName(fname);
                     mContacts.get(pos).setAge(age + " years old");
                     mContacts.get(pos).setAddress(address);
+                    loadingDialog.startLoadingDialog();
+                    Handler handler =new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dismissDialog();
+                            startActivity(intentDetail);
+                            finish();
+                        }
+                    },5000);
 
                 } else {
+                    final Intent intentMain = new Intent(AddUserActivity.this, MainActivity.class);
                     User contact = new User(fname, address, age + " years old");
-                    intent.putExtra("dataUser",contact);
+                    intentMain.putExtra("dataUser",contact);
                     SaveData.saveList.add(contact);
+                    loadingDialog.startLoadingDialog();
+                    Handler handler =new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadingDialog.dismissDialog();
+                            startActivity(intentMain);
+                            finish();
+                        }
+                    },5000);
                 }
 
-                loadingDialog.startLoadingDialog();
-                Handler handler =new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingDialog.dismissDialog();
-                        startActivity(intent);
-                        finish();
-                    }
-                },5000);
+
 
             }
         });
