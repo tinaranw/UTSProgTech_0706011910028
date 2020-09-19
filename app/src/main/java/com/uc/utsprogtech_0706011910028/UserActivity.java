@@ -29,17 +29,18 @@ public class UserActivity extends AppCompatActivity {
     String age;
     Button editBtn, deleteBtn;
     Toolbar toolbar;
+    int indexpos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
         final Intent intent = getIntent();
-        final int position = intent.getIntExtra("contact_info",0);
-        Log.d("position", String.valueOf(position));
-        name = mContacts.get(position).getName();
-        age = mContacts.get(position).getAge();
-        address = mContacts.get(position).getAddress();
+        indexpos = intent.getIntExtra("contact_info",0);
+        Log.d("position", String.valueOf(indexpos));
+        name = mContacts.get(indexpos).getName();
+        age = mContacts.get(indexpos).getAge();
+        address = mContacts.get(indexpos).getAddress();
 
         Log.d("name",name);
         Log.d("age",age);
@@ -62,8 +63,9 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserActivity.this,AddUserActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra("posisi", indexpos);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -83,7 +85,7 @@ public class UserActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
-                                mContacts.remove(position);
+                                mContacts.remove(indexpos);
                                 loadingDialog.startLoadingDialog();
                                 Handler handler =new Handler();
                                 handler.postDelayed(new Runnable() {

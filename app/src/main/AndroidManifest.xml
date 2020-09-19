@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".YesNoDialogue"></activity>
         <activity android:name=".UserActivity" />
-        <activity android:name=".DetailActivity" />
         <activity android:name=".AddUserActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

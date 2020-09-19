@@ -27,7 +27,7 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
     Button btn_add;
     String fname, address, age;
     String getname, getage, getaddress;
-    int pos;
+    int pos,posEdit;
     ArrayList<User> mContacts = SaveData.saveList;
 
     Toolbar toolbar;
@@ -54,14 +54,16 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
 
         Intent intentget = getIntent();
         pos = intentget.getIntExtra("position",0);
-        Log.d("intentcallme", String.valueOf(pos));
+        Intent intentdetail = getIntent();
+        posEdit = intentdetail.getIntExtra("posisi",0);
+        Log.d("intentcallme", String.valueOf(posEdit));
 
         if(pos>=0){
             btn_add.setText("Update Data");
             toolbar.setTitle("Edit User");
-            getname = mContacts.get(pos).getName();
-            getage = mContacts.get(pos).getAge();
-            getaddress = mContacts.get(pos).getAddress();
+            getname = mContacts.get(posEdit).getName();
+            getage = mContacts.get(posEdit).getAge();
+            getaddress = mContacts.get(posEdit).getAddress();
 
             Log.d("namekontak",getname);
             Log.d("agekontak",getage);
@@ -73,8 +75,6 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
 
         }
 
-
-
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,10 +82,10 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
 
                 if(pos>=0){
                     final Intent intentDetail = new Intent(AddUserActivity.this, UserActivity.class);
-                    intentDetail.putExtra("position",pos );
-                    mContacts.get(pos).setName(fname);
-                    mContacts.get(pos).setAge(age + " years old");
-                    mContacts.get(pos).setAddress(address);
+                    intentDetail.putExtra("contact_info", posEdit);
+                    mContacts.get(posEdit).setName(fname);
+                    mContacts.get(posEdit).setAge(age + " years old");
+                    mContacts.get(posEdit).setAddress(address);
                     loadingDialog.startLoadingDialog();
                     Handler handler =new Handler();
                     handler.postDelayed(new Runnable() {
